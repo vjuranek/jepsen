@@ -622,10 +622,10 @@
          :duplicated-count (count duplicated)
          :lost-count       (count lost)
          :recovered-count  (count recovered)
-         :lost             lost
-         :unexpected       unexpected
-         :duplicated       duplicated
-         :recovered        recovered}))))
+         :lost             (if (empty? lost) #{} lost)
+         :unexpected       (if (empty? unexpected) #{} unexpected)
+         :duplicated       (if (empty? duplicated) #{} duplicated)
+         :recovered        (if (empty? recovered) #{} recovered)}))))
 
 (defn unique-ids
   "Checks that a unique id generator actually emits unique IDs. Expects a
